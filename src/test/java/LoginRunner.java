@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         plugin = {"pretty", "html:target/cucumber-html-report"},
-        tags = "@Plan"
+        tags = "@LoginSuccess"
 )
 public class LoginRunner {
 }
