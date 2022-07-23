@@ -1,4 +1,4 @@
-## Caracteristicas de un escenario en Hgerkin**
+## Caracteristicas de un escenario en Gherkin
 - Feature: Descripción a detalle del escenario.
 - LoginSuccess tag que identifica el escenario.
 - Plan tag que permite ejecutar todos los features.
