@@ -9,10 +9,10 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.Wait;
 
 import static com.steps.ui.CommonTargetsPage.USER_EMAIL;
-import static com.steps.utils.sessionVariables.EMAIL_USER;
+import static com.steps.utils.Constants.WAIT_FOR;
+import static com.steps.utils.SessionVariables.EMAIL_USER;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
-
 
 public class VerifiesUser implements Task {
 
@@ -22,9 +22,8 @@ public class VerifiesUser implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String validateUser = actor.recall(EMAIL_USER.toString());
         actor.attemptsTo(GoesToUserData.user());
-        actor.attemptsTo(Wait.until(the(USER_EMAIL), isVisible()).forNoLongerThan(30).seconds());
-        actor.attemptsTo(Ensure.that(USER_EMAIL).value().isEqualTo(validateUser));
+        actor.attemptsTo(Wait.until(the(USER_EMAIL), isVisible()).forNoLongerThan(WAIT_FOR).seconds());
+        actor.attemptsTo(Ensure.that(USER_EMAIL).value().isEqualTo(actor.recall(EMAIL_USER.toString())));
     }
 }

@@ -1,6 +1,5 @@
 package com.steps.tasks;
 
-import com.steps.asserts.VerifiesUser;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -14,8 +13,8 @@ import java.util.Map;
 
 import static com.steps.ui.ConfirmAddressPage.*;
 import static com.steps.utils.Constants.*;
-import static com.steps.utils.sessionVariables.EMAIL_USER;
-import static com.steps.utils.sessionVariables.PASSWORD_USER;
+import static com.steps.utils.SessionVariables.EMAIL_USER;
+import static com.steps.utils.SessionVariables.PASSWORD_USER;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
@@ -30,7 +29,7 @@ public class EntersAddress implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Wait.until(the(WINDOWS_ADDRESS), isPresent()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(WINDOWS_ADDRESS), isPresent()).forNoLongerThan(WAIT_FOR).seconds());
         actor.attemptsTo(Enter.theValue(addressInfo.get(USER_SELECT_CITY)).into(WINDOWS_ADDRESS));
         actor.attemptsTo(Click.on(INDEX_CITY));
         actor.attemptsTo(Enter.theValue(addressInfo.get(USER_STREET_NUMBER)).into(STREET_NUMBER));

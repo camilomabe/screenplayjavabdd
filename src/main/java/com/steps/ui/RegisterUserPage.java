@@ -13,8 +13,6 @@ public class RegisterUserPage {
     public static final Target PHONE_NUMBER = Target.the("enters phone number").located(By.xpath("//input[@type='phone']"));
     public static final Target CONFIRM_PASSWORD = Target.the("enters confirmation password").located(By.xpath("(//input[@type='password'])[2]"));
     public static final Target TERM_AND_CONDITIONS = Target.the("clicks on accepts term and conditions").located(By.xpath("//label[@class='checkbox-item block mt-2 text-left']"));
-    public static final Target CAPTCHA = Target.the("clicks on captcha box").located(By.xpath("//input[@placeholder='Confirma tu contraseña']"));
     public static final Target CREATE_ACCOUNT_BUTTON = Target.the("clicks on create account button").located(By.xpath("//span[contains(text(),'Crear Cuenta')]"));
-
 
 }

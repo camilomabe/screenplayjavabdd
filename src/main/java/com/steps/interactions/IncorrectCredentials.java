@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.waits.Wait;
 
 import static com.steps.ui.LoginPage.WRONG_CREDENTIALS;
 import static com.steps.utils.Constants.ACCESS_DENIED_MESSAGE;
+import static com.steps.utils.Constants.WAIT_FOR;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
@@ -19,7 +20,7 @@ public class IncorrectCredentials implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Wait.until(the(WRONG_CREDENTIALS), isVisible()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(WRONG_CREDENTIALS), isVisible()).forNoLongerThan(WAIT_FOR).seconds());
         String wrong = WRONG_CREDENTIALS.resolveFor(actor).getText();
         if (wrong.contains(ACCESS_DENIED_MESSAGE)) {
             throw new RuntimeException("\nIncorrect credentials -> " + wrong);

@@ -11,7 +11,8 @@ import net.serenitybdd.screenplay.waits.Wait;
 
 import static com.steps.ui.CommonTargetsPage.*;
 import static com.steps.ui.LoginPage.LOGIN_BUTTON;
-import static com.steps.utils.sessionVariables.EMAIL_USER;
+import static com.steps.utils.Constants.WAIT_FOR;
+import static com.steps.utils.SessionVariables.EMAIL_USER;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
@@ -28,7 +29,7 @@ public class LoginUser implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.remember(EMAIL_USER.toString(), email);
-        actor.attemptsTo(Wait.until(the(REGISTER), isEnabled()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(REGISTER), isEnabled()).forNoLongerThan(WAIT_FOR).seconds());
         actor.attemptsTo(Click.on(REGISTER));
         actor.attemptsTo(Enter.theValue(email).into(USER_EMAIL));
         actor.attemptsTo(Enter.theValue(pass).into(PASSWORD));

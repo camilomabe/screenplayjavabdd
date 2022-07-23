@@ -16,7 +16,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LoginSteps {
 
-
     @Before
     public void set_the_stage() {
         OnStage.setTheStage(new OnlineCast());

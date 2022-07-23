@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.waits.Wait;
 
 import static com.steps.ui.LoginPage.MY_DATA_FIELD;
 import static com.steps.ui.LoginPage.USER_FIELD;
+import static com.steps.utils.Constants.WAIT_FOR;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
@@ -20,9 +21,9 @@ public class GoesToUserData implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Wait.until(the(USER_FIELD), isEnabled()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(USER_FIELD), isEnabled()).forNoLongerThan(WAIT_FOR).seconds());
         actor.attemptsTo(Click.on(USER_FIELD));
-        actor.attemptsTo(Wait.until(the(MY_DATA_FIELD), isEnabled()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(MY_DATA_FIELD), isEnabled()).forNoLongerThan(WAIT_FOR).seconds());
         actor.attemptsTo(Click.on(MY_DATA_FIELD));
     }
 }

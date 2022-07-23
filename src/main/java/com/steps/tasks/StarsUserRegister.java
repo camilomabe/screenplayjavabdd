@@ -17,8 +17,8 @@ import static com.steps.ui.CommonTargetsPage.PASSWORD;
 import static com.steps.ui.CommonTargetsPage.USER_EMAIL;
 import static com.steps.ui.RegisterUserPage.*;
 import static com.steps.utils.Constants.*;
-import static com.steps.utils.sessionVariables.EMAIL_USER;
-import static com.steps.utils.sessionVariables.PASSWORD_USER;
+import static com.steps.utils.SessionVariables.EMAIL_USER;
+import static com.steps.utils.SessionVariables.PASSWORD_USER;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 
 @AllArgsConstructor
@@ -36,7 +36,7 @@ public class StarsUserRegister implements Task {
         actor.remember(EMAIL_USER.toString(), info.get(USER_USER_EMAIL));
         actor.remember(PASSWORD_USER.toString(), info.get(USER_PASSWORD));
 
-        actor.attemptsTo(WaitUntil.the(USER_NAME, isEnabled()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(WaitUntil.the(USER_NAME, isEnabled()).forNoMoreThan(WAIT_FOR).seconds());
         actor.attemptsTo(Enter.theValue(info.get(NAME)).into(USER_NAME));
         actor.attemptsTo(Enter.theValue(info.get(USER_LAST_NAME)).into(LAST_NAME));
         actor.attemptsTo(Enter.theValue(info.get(USER_SECOND_LAST_NAME)).into(SECOND_LAST_NAME));

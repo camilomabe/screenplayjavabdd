@@ -7,9 +7,9 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.waits.Wait;
 
 import static com.steps.ui.CommonTargetsPage.REGISTER;
+import static com.steps.utils.Constants.WAIT_FOR;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
-
 
 public class GoesRegisterHome implements Interaction {
 
@@ -19,6 +19,6 @@ public class GoesRegisterHome implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Wait.until(the(REGISTER), isEnabled()).forNoLongerThan(30).seconds());
+        actor.attemptsTo(Wait.until(the(REGISTER), isEnabled()).forNoLongerThan(WAIT_FOR).seconds());
     }
 }

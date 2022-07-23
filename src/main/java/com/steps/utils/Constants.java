@@ -16,6 +16,7 @@ public abstract class Constants {
     public static final String USER_STREET_NUMBER = "Enters street";
     public static final String USER_NUMBER = "Enters number";
     public static final String USER_WITH_NUMBER = "Enters house number";
+    public static final int WAIT_FOR = 20;
 
     private Constants() {
 

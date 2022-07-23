@@ -28,7 +28,6 @@ Feature: : Gestion de login
       | name   | last_name | second_last_name | document | document_number | email              | phone_number | password | city   | street | number | house_number |
       | Carlos | Lopez     | Ruiz             | NIT      | 1081514444      | carlos@hotmail.com | 3131234561   | Asd123.1 | Bogotá | 71     | 73 A   | 44           |
 
-
   @RegisterSuccess @Plan
   Scenario Outline: Customer registered before
     Given  Camilo opens the browser in the login home
